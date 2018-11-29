@@ -1,0 +1,135 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.mhc.orianna</groupId>
+		<artifactId>orianna</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+	</parent>
+	<artifactId>orianna-service</artifactId>
+	<name>orianna-service</name>
+	<description>orianna-service</description>
+	<dependencies>
+		<dependency>
+			<groupId>com.mhc.orianna</groupId>
+			<artifactId>orianna-api</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		
+		<!--
+		<dependency>
+			<groupId>com.mhc.orianna</groupId>
+			<artifactId>orianna-client</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		-->
+		
+		<dependency>
+			<groupId>com.mhc.orianna</groupId>
+			<artifactId>orianna-dal</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.mhc.framework</groupId>
+			<artifactId>framework-core</artifactId>
+			<version>${framework.version}</version>
+		</dependency>
+		
+		<dependency>
+			 <groupId>com.mhc.framework</groupId>
+			 <artifactId>framework-support-cache</artifactId>
+			 <version>${framework.version}</version>
+		</dependency>
+		
+		<dependency>
+		  	<groupId>com.mhc.framework</groupId>
+		  	<artifactId>framework-support-lock</artifactId>
+		  	<version>${framework.version}</version>
+		</dependency>
+		
+		<dependency>
+		  	<groupId>com.mhc.framework</groupId>
+		  	<artifactId>framework-support-log</artifactId>
+		  	<version>${framework.version}</version>
+		</dependency>
+		
+		<dependency>
+		  	<groupId>com.mhc.framework</groupId>
+		  	<artifactId>framework-support-health</artifactId>
+		  	<version>${framework.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		
+		 <!-- apollo -->
+		<dependency>
+			<groupId>com.ctrip.framework.apollo</groupId>
+			<artifactId>apollo-client-mhc</artifactId>
+			<version>${apollo-client-mhc.version}</version>
+		</dependency>
+		
+		
+		<dependency>
+			<groupId>com.alibaba.boot</groupId>
+			<artifactId>dubbo-spring-boot-starter</artifactId>
+		</dependency>
+		
+		<dependency>
+            <groupId>com.alibaba.boot</groupId>
+            <artifactId>dubbo-spring-boot-actuator</artifactId>
+        </dependency>
+        
+        <dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-actuator</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>druid-spring-boot-starter</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.spring4all</groupId>
+			<artifactId>swagger-spring-boot-starter</artifactId>
+		</dependency>
+		
+		<dependency>
+		  	<groupId>com.baidu.unbiz</groupId>
+		  	<artifactId>fluent-validator</artifactId>
+			  <exclusions>
+			    <exclusion>
+			      <groupId>org.slf4j</groupId>
+			      <artifactId>slf4j-log4j12</artifactId>
+			    </exclusion>
+			  </exclusions>
+		</dependency>
+		
+		<dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>20.0</version>
+        </dependency>
+	</dependencies>
+	
+	<build>
+		<finalName>${project.artifactId}</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<!-- 
+			<plugin> 
+				<groupId>com.spotify</groupId> 
+				<artifactId>docker-maven-plugin</artifactId> 
+			</plugin> 
+			-->
+		</plugins>
+	</build>
+	
+</project>

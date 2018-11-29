@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mhc.orianna.dal.dao.AssetFourAssetDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.mhc.orianna.dal.domain.AssetFourAsset">
+        <id column="asset_id" property="assetId" />
+        <result column="asset_no" property="assetNo" />
+        <result column="catalog_id" property="catalogId" />
+        <result column="asset_type_name" property="assetTypeName" />
+        <result column="catalog_brand" property="catalogBrand" />
+        <result column="catalog_model" property="catalogModel" />
+        <result column="asset_remark" property="assetRemark" />
+        <result column="asset_source" property="assetSource" />
+        <result column="asset_serial_no" property="assetSerialNo" />
+        <result column="asset_supplier" property="assetSupplier" />
+        <result column="asset_purchase_or_rent_date" property="assetPurchaseOrRentDate" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        asset_id AS assetId, asset_no AS assetNo, catalog_id AS catalogId, asset_type_name AS assetTypeName, catalog_brand AS catalogBrand, catalog_model AS catalogModel, asset_remark AS assetRemark, asset_source AS assetSource, asset_serial_no AS assetSerialNo, asset_supplier AS assetSupplier, asset_purchase_or_rent_date AS assetPurchaseOrRentDate
+    </sql>
+
+</mapper>
