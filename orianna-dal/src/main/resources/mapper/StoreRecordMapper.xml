@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mhc.orianna.dal.dao.StoreRecordDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.mhc.orianna.dal.domain.StoreRecord">
+        <id column="store_record_id" property="storeRecordId" />
+        <result column="asset_id" property="assetId" />
+        <result column="asset_no" property="assetNo" />
+        <result column="store_date" property="storeDate" />
+        <result column="store_remark" property="storeRemark" />
+        <result column="gmt_create" property="gmtCreate" />
+        <result column="gmt_modified" property="gmtModified" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        store_record_id, asset_id, asset_no, store_date, store_remark, gmt_create, gmt_modified
+    </sql>
+
+</mapper>

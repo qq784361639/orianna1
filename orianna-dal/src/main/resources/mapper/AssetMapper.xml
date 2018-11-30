@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mhc.orianna.dal.dao.AssetDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.mhc.orianna.dal.domain.Asset">
+        <id column="asset_id" property="assetId" />
+        <result column="asset_no" property="assetNo" />
+        <result column="catalog_id" property="catalogId" />
+        <result column="asset_type_name" property="assetTypeName" />
+        <result column="catalog_brand" property="catalogBrand" />
+        <result column="catalog_model" property="catalogModel" />
+        <result column="asset_remark" property="assetRemark" />
+        <result column="asset_source" property="assetSource" />
+        <result column="asset_serial_no" property="assetSerialNo" />
+        <result column="asset_supplier" property="assetSupplier" />
+        <result column="asset_purchase_or_rent_date" property="assetPurchaseOrRentDate" />
+        <result column="asset_rent_end_date" property="assetRentEndDate" />
+        <result column="asset_start_date" property="assetStartDate" />
+        <result column="asset_status" property="assetStatus" />
+        <result column="asset_flow_type" property="assetFlowType" />
+        <result column="asset_borrow_date" property="assetBorrowDate" />
+        <result column="asset_predict_return_date" property="assetPredictReturnDate" />
+        <result column="asset_original_value" property="assetOriginalValue" />
+        <result column="borrow_approval_no" property="borrowApprovalNo" />
+        <result column="auth_staff_id" property="authStaffId" />
+        <result column="asset_back_rent_date" property="assetBackRentDate" />
+        <result column="asset_back_rent_record" property="assetBackRentRecord" />
+        <result column="is_deleted" property="isDeleted" />
+        <result column="gmt_create" property="gmtCreate" />
+        <result column="gmt_modified" property="gmtModified" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        asset_id, asset_no, catalog_id, asset_type_name, catalog_brand, catalog_model, asset_remark, asset_source, asset_serial_no, asset_supplier, asset_purchase_or_rent_date, asset_rent_end_date, asset_start_date, asset_status, asset_flow_type, asset_borrow_date, asset_predict_return_date, asset_original_value, borrow_approval_no, auth_staff_id, asset_back_rent_date, asset_back_rent_record, is_deleted, gmt_create, gmt_modified
+    </sql>
+
+</mapper>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mhc.orianna.dal.dao.BorrowRecordDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.mhc.orianna.dal.domain.BorrowRecord">
+        <id column="borrow_record_id" property="borrowRecordId" />
+        <result column="borrow_approval_no" property="borrowApprovalNo" />
+        <result column="auth_staff_id" property="authStaffId" />
+        <result column="auth_staff_name" property="authStaffName" />
+        <result column="asset_id" property="assetId" />
+        <result column="asset_no" property="assetNo" />
+        <result column="borrow_date" property="borrowDate" />
+        <result column="asset_flow_type" property="assetFlowType" />
+        <result column="borrow_remark" property="borrowRemark" />
+        <result column="gmt_create" property="gmtCreate" />
+        <result column="gmt_modified" property="gmtModified" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        borrow_record_id, borrow_approval_no, auth_staff_id, auth_staff_name, asset_id, asset_no, borrow_date, asset_flow_type, borrow_remark, gmt_create, gmt_modified
+    </sql>
+
+</mapper>

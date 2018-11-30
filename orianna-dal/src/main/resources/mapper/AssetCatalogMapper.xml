@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mhc.orianna.dal.dao.AssetCatalogDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.mhc.orianna.dal.domain.AssetCatalog">
+        <id column="catalog_id" property="catalogId" />
+        <result column="catalog_num" property="catalogNum" />
+        <result column="asset_type_name" property="assetTypeName" />
+        <result column="catalog_brand" property="catalogBrand" />
+        <result column="catalog_model" property="catalogModel" />
+        <result column="catalog_remark" property="catalogRemark" />
+        <result column="is_deleted" property="isDeleted" />
+        <result column="gmt_create" property="gmtCreate" />
+        <result column="gmt_modified" property="gmtModified" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        catalog_id, catalog_num, asset_type_name, catalog_brand, catalog_model, catalog_remark, is_deleted, gmt_create, gmt_modified
+    </sql>
+
+</mapper>

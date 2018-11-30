@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mhc.orianna.dal.dao.ReturnRecordDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.mhc.orianna.dal.domain.ReturnRecord">
+        <id column="return_record_id" property="returnRecordId" />
+        <result column="asset_id" property="assetId" />
+        <result column="asset_no" property="assetNo" />
+        <result column="return_date" property="returnDate" />
+        <result column="return_remark" property="returnRemark" />
+        <result column="gmt_create" property="gmtCreate" />
+        <result column="gmt_modified" property="gmtModified" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        return_record_id, asset_id, asset_no, return_date, return_remark, gmt_create, gmt_modified
+    </sql>
+
+</mapper>
