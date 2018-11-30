@@ -9,13 +9,22 @@
  */ 
 package com.mhc.orianna.test.base;
 
-/**   
+import com.mhc.orianna.core.OriannaApplication;
+import org.junit.runner.RunWith;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
+import org.springframework.test.context.junit4.SpringRunner;
+
+/**  
  * <p> orianna模块测试基类 </p>
  *   
  * @author: 文远（wenyuan@maihaoche.com）
  * @date: 2018-11-29 20:53:45
  * @since V1.0 
  */
+@RunWith(SpringRunner.class)
+@SpringBootTest(classes = OriannaApplication.class)
+@ActiveProfiles(profiles = "local")
 public abstract class BaseTest {
 
 }
