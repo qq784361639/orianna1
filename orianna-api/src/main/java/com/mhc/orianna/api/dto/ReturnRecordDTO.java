@@ -3,10 +3,12 @@ package com.mhc.orianna.api.dto;
 import com.mhc.orianna.api.enums.AssetStatusEnum;
 import lombok.Data;
 
+import java.io.Serializable;
 import java.util.Date;
 @Data
-public class ReturnRecordDTO {
+public class ReturnRecordDTO implements Serializable{
 
+    private static final long serialVersionUID = 7398071485364310148L;
     /**
      * 资产id
      */

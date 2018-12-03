@@ -6,10 +6,12 @@ import com.mhc.orianna.api.enums.AssetStatusEnum;
 import com.mhc.orianna.api.enums.IsDeletedEnum;
 import lombok.Data;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 @Data
-public class AssetDTO {
+public class AssetDTO implements Serializable{
+    private static final long serialVersionUID = -9169746097433636637L;
     /**
      * 资产id
      */

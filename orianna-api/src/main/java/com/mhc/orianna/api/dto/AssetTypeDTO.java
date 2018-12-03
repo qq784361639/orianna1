@@ -11,6 +11,7 @@ import java.io.Serializable;
 @Data
 public class AssetTypeDTO implements Serializable  {
 
+    private static final long serialVersionUID = -7897803723746520957L;
     private Integer assetTypeId;
     /**
      * 资产类型名称
