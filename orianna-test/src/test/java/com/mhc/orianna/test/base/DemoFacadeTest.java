@@ -29,7 +29,7 @@ public class DemoFacadeTest extends BaseTest {
         assetTypeDTO.setAssetTypeCode("22");
         assetTypeDTO.setAssetTypeName("笔记本");
         assetTypeDTO.setIsDeletedEnum(IsDeletedEnum.not_delete);
-        APIResult apiResult = new APIResult();
+        APIResult apiResult;
         apiResult = assetTypeFacade.addAssetType(assetTypeDTO);
         System.out.print(apiResult.toString());
 
@@ -163,8 +163,8 @@ public class DemoFacadeTest extends BaseTest {
     public void test12(){
         AssetQuery assetQuery = new AssetQuery();
         assetQuery.setPageSize(5);
-        assetQuery.setAssetStatus(0);
-        assetQuery.setAssetSource(0);
+//        assetQuery.setAssetStatus(0);
+//        assetQuery.setAssetSource(0);
         APIResult apiResult = assetFacade.queryAsset(assetQuery);
         System.out.print(apiResult.toString());
     }
