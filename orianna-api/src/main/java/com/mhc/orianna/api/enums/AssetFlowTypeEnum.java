@@ -6,8 +6,8 @@ import lombok.Getter;
  * 资产流转类型，默认值为0，0:资产借用，1:资产发放
  */
 public enum AssetFlowTypeEnum {
-    asset_borrow(0, "资产借用"),
-    asset_issue(1, "资产发放");
+    ASSET_BORROW(0, "资产借用"),
+    ASSET_ISSUE(1, "资产发放");
 
     @Getter
     private Integer code;

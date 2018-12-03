@@ -33,4 +33,16 @@
 				   version="${dubbo.provider.version}"
 				   owner="${dubbo.application.owner}"
 	/>
+
+	<bean id="assetCatalogFacade" class="com.mhc.orianna.core.biz.AssetCatalogFacadeImpl"/>
+	<dubbo:service interface="com.mhc.orianna.api.AssetCatalogFacade" ref="assetCatalogFacade"
+				   version="${dubbo.provider.version}"
+				   owner="${dubbo.application.owner}"
+	/>
+
+	<bean id="assetTypeFacade" class="com.mhc.orianna.core.biz.AssetTypeFacadeImpl"/>
+	<dubbo:service interface="com.mhc.orianna.api.AssetTypeFacade" ref="assetTypeFacade"
+				   version="${dubbo.provider.version}"
+				   owner="${dubbo.application.owner}"
+	/>
 </beans>

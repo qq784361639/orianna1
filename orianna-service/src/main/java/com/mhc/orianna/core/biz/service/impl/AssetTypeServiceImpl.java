@@ -32,9 +32,9 @@ public class AssetTypeServiceImpl implements AssetTypeService {
     public Boolean addAssetType(AssetTypeDTO assetTypeDTO) {
         AssetType assetType = new AssetType();
         assetType.setAssetDescription(assetTypeDTO.getAssetTypeDescription());
-        assetType.setAssetStatus(assetTypeDTO.getAssetTypeStatusEnum().enable.getCode());
+        assetType.setAssetStatus(AssetTypeStatusEnum.ENABLE.getCode());
         assetType.setAssetTypeCode(assetTypeDTO.getAssetTypeCode());
-        assetType.setIsDeleted(assetTypeDTO.getIsDeletedEnum().not_delete.getCode());
+        assetType.setIsDeleted(IsDeletedEnum.NOT_DELETE.getCode());
         assetType.setAssetTypeName(assetTypeDTO.getAssetTypeName());
         Date date = new Date();
         assetType.setGmtCreate(date);
@@ -65,7 +65,7 @@ public class AssetTypeServiceImpl implements AssetTypeService {
     @Override
     public Boolean deleteAssetType(AssetTypeDTO assetTypeDTO) {
         AssetType assetType = new AssetType();
-        assetType.setIsDeleted(IsDeletedEnum.delete.getCode());
+        assetType.setIsDeleted(IsDeletedEnum.DELETE.getCode());
         Wrapper<AssetType> ew = new EntityWrapper<>();
         ew.eq("asset_type_id", assetTypeDTO.getAssetTypeId());
         Integer count = assetTypeManager.update(assetType,ew);

@@ -57,7 +57,7 @@ public class AssetCatalogServiceImpl implements AssetCatalogService {
     @Override
     public Boolean deleteAssetCatalog(AssetCatalogDTO assetCatalogDTO){
         AssetCatalog assetCatalog = new AssetCatalog();
-        assetCatalog.setIsDeleted(IsDeletedEnum.delete.getCode());
+        assetCatalog.setIsDeleted(IsDeletedEnum.DELETE.getCode());
         Wrapper<AssetCatalog> ew = new EntityWrapper<>();
         ew.eq("catalog_id", assetCatalogDTO.getAssetCatalogId());
         Integer flag = assetCatalogManager.update(assetCatalog,ew);

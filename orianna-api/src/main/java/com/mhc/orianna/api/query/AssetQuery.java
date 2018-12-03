@@ -1,7 +1,6 @@
 package com.mhc.orianna.api.query;
 
-import com.mhc.bs.common.base.page.PageInfo;
-import com.mhc.orianna.api.dto.AssetDTO;
+
 import lombok.Data;
 
 import java.io.Serializable;

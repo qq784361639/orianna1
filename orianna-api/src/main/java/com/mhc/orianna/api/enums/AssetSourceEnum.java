@@ -5,8 +5,8 @@ import lombok.Getter;
  * 资产来源，默认值0，0:公司资产，1:租赁资产
  */
 public enum AssetSourceEnum {
-    company_asset(0, "公司资产"),
-    rent_asset(1, "租赁资产");
+    COMPANY_ASSET(0, "公司资产"),
+    RENT_ASSET(1, "租赁资产");
 
     @Getter
     private Integer code;

@@ -3,8 +3,8 @@ package com.mhc.orianna.api.enums;
 import lombok.Getter;
 
 public enum AssetTypeStatusEnum {
-    enable(1, "启用"),
-    dsiable(0, "停用");
+    ENABLE(1, "启用"),
+    DISABLE(0, "停用");
 
     @Getter
     private Integer code;

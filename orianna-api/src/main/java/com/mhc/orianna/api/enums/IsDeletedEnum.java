@@ -6,8 +6,8 @@ import lombok.Getter;
  * 是否删除
  */
 public enum IsDeletedEnum {
-    delete(1, "已删除"),
-    not_delete(0, "未删除");
+    DELETE(1, "已删除"),
+    NOT_DELETE(0, "未删除");
 
     @Getter
     private Integer code;

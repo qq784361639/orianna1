@@ -6,7 +6,6 @@ import com.baomidou.mybatisplus.mapper.Wrapper;
 import com.baomidou.mybatisplus.plugins.Page;
 import com.mhc.bs.common.base.page.PageInfo;
 import com.mhc.orianna.api.dto.AssetDTO;
-import com.mhc.orianna.api.dto.AssetTypeDTO;
 import com.mhc.orianna.api.dto.ReturnRecordDTO;
 import com.mhc.orianna.api.enums.*;
 import com.mhc.orianna.api.query.AssetQuery;
@@ -22,8 +21,6 @@ import com.mhc.orianna.dal.manager.StoreRecordManager;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 @Service
@@ -105,7 +102,7 @@ public class AssetServiceImpl implements AssetService {
         asset.setAuthStaffDept(assetDTO.getAuthStaffDept());
         asset.setAuthStaffJob(assetDTO.getAuthStaffJob());
         asset.setAssetPredictReturnDate(assetDTO.getAssetPredictReturnDate());
-        asset.setAssetStatus(AssetStatusEnum.issue.getCode());
+        asset.setAssetStatus(AssetStatusEnum.ISSUE.getCode());
         Date date = new Date();
         asset.setGmtModified(date);
         //填写领用记录信息
