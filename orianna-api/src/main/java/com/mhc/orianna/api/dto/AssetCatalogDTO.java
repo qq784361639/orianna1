@@ -32,7 +32,7 @@ public class AssetCatalogDTO implements Serializable {
     /**
      * 目录型号
      */
-    private String assetCAtalogModel;
+    private String assetCatalogModel;
     /**
      * 目录备注
      */

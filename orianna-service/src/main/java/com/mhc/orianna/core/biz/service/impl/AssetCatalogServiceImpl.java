@@ -38,7 +38,7 @@ public class AssetCatalogServiceImpl implements AssetCatalogService {
         assetCatalog.setCatalogNum(assetCatalogDTO.getAssetCatalogNum());
         assetCatalog.setAssetTypeName(assetCatalogDTO.getAssetTypeName());
         assetCatalog.setCatalogBrand(assetCatalogDTO.getAssetCatalogBrand());
-        assetCatalog.setCatalogModel(assetCatalogDTO.getAssetCAtalogModel());
+        assetCatalog.setCatalogModel(assetCatalogDTO.getAssetCatalogModel());
         assetCatalog.setCatalogRemark(assetCatalogDTO.getAssetCatalogRemark());
         assetCatalog.setIsDeleted(assetCatalogDTO.getIsDeletedEnum().getCode());
         Date date = new Date();
@@ -108,7 +108,7 @@ public class AssetCatalogServiceImpl implements AssetCatalogService {
         dest.setAssetCatalogId(src.getCatalogId());
         dest.setIsDeletedEnum(IsDeletedEnum.getEnumByCode(src.getIsDeleted()));
         dest.setAssetCatalogRemark(src.getCatalogRemark());
-        dest.setAssetCAtalogModel(src.getCatalogModel());
+        dest.setAssetCatalogModel(src.getCatalogModel());
         dest.setAssetCatalogBrand(src.getCatalogBrand());
         dest.setAssetTypeName(src.getAssetTypeName());
         dest.setAssetCatalogNum(src.getCatalogNum());
