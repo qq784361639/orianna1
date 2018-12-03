@@ -121,6 +121,21 @@ public class Asset extends BaseModel {
     @TableField("auth_staff_id")
     private Integer authStaffId;
     /**
+     * 领用人姓名
+     */
+    @TableField("auth_staff_name")
+    private String authStaffName;
+    /**
+     * 领用人部门
+     */
+    @TableField("auth_staff_dept")
+    private String authStaffDept;
+    /**
+     * 领用人岗位
+     */
+    @TableField("auth_staff_job")
+    private String authStaffJob;
+    /**
      * 资产退租时间
      */
     @TableField("asset_back_rent_date")
@@ -307,6 +322,30 @@ public class Asset extends BaseModel {
         this.authStaffId = authStaffId;
     }
 
+    public String getAuthStaffName() {
+        return authStaffName;
+    }
+
+    public void setAuthStaffName(String authStaffName) {
+        this.authStaffName = authStaffName;
+    }
+
+    public String getAuthStaffDept() {
+        return authStaffDept;
+    }
+
+    public void setAuthStaffDept(String authStaffDept) {
+        this.authStaffDept = authStaffDept;
+    }
+
+    public String getAuthStaffJob() {
+        return authStaffJob;
+    }
+
+    public void setAuthStaffJob(String authStaffJob) {
+        this.authStaffJob = authStaffJob;
+    }
+
     public Date getAssetBackRentDate() {
         return assetBackRentDate;
     }
@@ -347,6 +386,9 @@ public class Asset extends BaseModel {
         this.gmtModified = gmtModified;
     }
 
+    /**
+     * @return
+     */
     @Override
     public String toString() {
         return "Asset{" +
@@ -370,6 +412,9 @@ public class Asset extends BaseModel {
         ", assetOriginalValue=" + assetOriginalValue +
         ", borrowApprovalNo=" + borrowApprovalNo +
         ", authStaffId=" + authStaffId +
+        ", authStaffName=" + authStaffName +
+        ", authStaffDept=" + authStaffDept +
+        ", authStaffJob=" + authStaffJob +
         ", assetBackRentDate=" + assetBackRentDate +
         ", assetBackRentRecord=" + assetBackRentRecord +
         ", isDeleted=" + isDeleted +
@@ -377,4 +422,7 @@ public class Asset extends BaseModel {
         ", gmtModified=" + gmtModified +
         "}";
     }
+
+
+
 }
