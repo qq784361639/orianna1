@@ -24,9 +24,9 @@ public class AssetCatalogFacadeTest extends BaseTest {
         assetCatalogDTO.setAssetCatalogNum("ML002");
         assetCatalogDTO.setAssetTypeName("手机");
         assetCatalogDTO.setAssetCatalogBrand("小米");
-        assetCatalogDTO.setAssetCAtalogModel("mi8");
+        assetCatalogDTO.setAssetCatalogModel("mi8");
         assetCatalogDTO.setAssetCatalogRemark("测试数据");
-        assetCatalogDTO.setIsDeletedEnum(IsDeletedEnum.not_delete);
+        assetCatalogDTO.setIsDeletedEnum(IsDeletedEnum.NOT_DELETE);
         APIResult apiResult = new APIResult();
         apiResult = assetCatalogFacade.addAssetCatalog(assetCatalogDTO);
         System.out.println(apiResult.toString());
@@ -37,7 +37,7 @@ public class AssetCatalogFacadeTest extends BaseTest {
 
         AssetCatalogDTO assetCatalogDTO = new AssetCatalogDTO();
         assetCatalogDTO.setAssetCatalogId(1);
-        assetCatalogDTO.setIsDeletedEnum(IsDeletedEnum.delete);
+        assetCatalogDTO.setIsDeletedEnum(IsDeletedEnum.DELETE);
         APIResult apiResult = assetCatalogFacade.deleteAssetCatalog(assetCatalogDTO);
         System.out.println(apiResult.toString());
     }
