@@ -21,4 +21,16 @@
 	<dubbo:service interface="com.mhc.demo.user.api.UserFacade"
 		ref="userFacade" version="${dubbo.provider.version}" owner="${dubbo.application.owner}" />
 	-->
+
+	<bean id="demoFacade" class="com.mhc.orianna.core.biz.DemoFacadeImpl"/>
+	<dubbo:service interface="com.mhc.orianna.api.DemoFacade" ref="demoFacade"
+				   version="${dubbo.provider.version}"
+				   owner="${dubbo.application.owner}"
+	/>
+
+	<bean id="assetFacade" class="com.mhc.orianna.core.biz.AssetFacadeImpl"/>
+	<dubbo:service interface="com.mhc.orianna.api.AssetFacade" ref="assetFacade"
+				   version="${dubbo.provider.version}"
+				   owner="${dubbo.application.owner}"
+	/>
 </beans>
