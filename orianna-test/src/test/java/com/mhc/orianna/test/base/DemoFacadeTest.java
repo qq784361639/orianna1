@@ -25,10 +25,10 @@ public class DemoFacadeTest extends BaseTest {
     public void test1(){
         AssetTypeDTO assetTypeDTO = new AssetTypeDTO();
         assetTypeDTO.setAssetTypeDescription("11");
-        assetTypeDTO.setAssetTypeStatusEnum(AssetTypeStatusEnum.enable);
+        assetTypeDTO.setAssetTypeStatusEnum(AssetTypeStatusEnum.ENABLE);
         assetTypeDTO.setAssetTypeCode("22");
         assetTypeDTO.setAssetTypeName("笔记本");
-        assetTypeDTO.setIsDeletedEnum(IsDeletedEnum.not_delete);
+        assetTypeDTO.setIsDeletedEnum(IsDeletedEnum.NOT_DELETE);
         APIResult apiResult;
         apiResult = assetTypeFacade.addAssetType(assetTypeDTO);
         System.out.print(apiResult.toString());
@@ -39,7 +39,7 @@ public class DemoFacadeTest extends BaseTest {
     public void test2(){
         AssetTypeDTO assetTypeDTO = new AssetTypeDTO();
         assetTypeDTO.setAssetTypeId(1);
-        assetTypeDTO.setAssetTypeStatusEnum(AssetTypeStatusEnum.dsiable);
+        assetTypeDTO.setAssetTypeStatusEnum(AssetTypeStatusEnum.DISABLE);
         APIResult apiResult = assetTypeFacade.updateAssetTypeStatus(assetTypeDTO);
         System.out.print(apiResult.toString());
 
@@ -49,7 +49,7 @@ public class DemoFacadeTest extends BaseTest {
     public void test3(){
         AssetTypeDTO assetTypeDTO = new AssetTypeDTO();
         assetTypeDTO.setAssetTypeId(1);
-        assetTypeDTO.setIsDeletedEnum(IsDeletedEnum.delete);
+        assetTypeDTO.setIsDeletedEnum(IsDeletedEnum.DELETE);
         APIResult apiResult = assetTypeFacade.deleteAssetType(assetTypeDTO);
         System.out.print(apiResult.toString());
 
@@ -59,7 +59,7 @@ public class DemoFacadeTest extends BaseTest {
     public void test4(){
         AssetTypeDTO assetTypeDTO = new AssetTypeDTO();
         assetTypeDTO.setAssetTypeId(1);
-        assetTypeDTO.setIsDeletedEnum(IsDeletedEnum.delete);
+        assetTypeDTO.setIsDeletedEnum(IsDeletedEnum.DELETE);
         APIResult apiResult = assetTypeFacade.queryAllAssertType();
         System.out.print(apiResult.toString());
 
@@ -87,7 +87,7 @@ public class DemoFacadeTest extends BaseTest {
         assetDTO.setAssetTypeName("笔记本");
         assetDTO.setAssetTypeNo("BJB");
         assetDTO.setAssetSupplier("苹果公司");
-        assetDTO.setAssetSourceEnum(AssetSourceEnum.company_asset);
+        assetDTO.setAssetSourceEnum(AssetSourceEnum.COMPANY_ASSET);
         assetDTO.setAssetStartDate(date);
         assetDTO.setAssetRemark("");
         assetDTO.setAssetSerialNo("123DA757RT,8628HFH868,857HVBJ231");
@@ -101,7 +101,7 @@ public class DemoFacadeTest extends BaseTest {
         AssetDTO assetDTO = new AssetDTO();
         Date date = new Date();
         assetDTO.setBorrowApprovalNo("GJGI879819");
-        assetDTO.setAssetFlowTypeEnum(AssetFlowTypeEnum.asset_borrow);
+        assetDTO.setAssetFlowTypeEnum(AssetFlowTypeEnum.ASSET_BORROW);
         assetDTO.setAssetBorrowDate(date);
         assetDTO.setAuthStaffId(520);
         assetDTO.setAssetPredictReturnDate(date);
@@ -121,7 +121,7 @@ public class DemoFacadeTest extends BaseTest {
         ReturnRecordDTO returnRecordDTO = new ReturnRecordDTO();
         returnRecordDTO.setAssetId(1);
         returnRecordDTO.setAssetNo("BJB201812020726531");
-        returnRecordDTO.setAssetStatusEnum(AssetStatusEnum.issue);
+        returnRecordDTO.setAssetStatusEnum(AssetStatusEnum.ISSUE);
         returnRecordDTO.setReturnDate(date);
         returnRecordDTO.setReturnRemark("已归还");
         APIResult apiResult = assetFacade.returnAsset(returnRecordDTO);
@@ -150,7 +150,7 @@ public class DemoFacadeTest extends BaseTest {
     public void test11(){
         AssetDTO assetDTO = new AssetDTO();
         assetDTO.setAssetNo("BJB201812021157482");
-        assetDTO.setAssetSourceEnum(AssetSourceEnum.rent_asset);
+        assetDTO.setAssetSourceEnum(AssetSourceEnum.RENT_ASSET);
         Date date = new Date();
         assetDTO.setAssetPurchaseOrRentDate(date);
         assetDTO.setAssetSupplier("苹果代理商");
