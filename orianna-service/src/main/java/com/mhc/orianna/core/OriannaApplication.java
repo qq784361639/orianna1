@@ -14,6 +14,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.ImportResource;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -36,6 +37,7 @@ import com.spring4all.swagger.EnableSwagger2Doc;
 @EnableTransactionManagement
 @EnableLogManagement
 @EnableExceptionManagement
+@ImportResource("classpath:orianna-all.xml")
 @EnableSwagger2Doc
 @RestController
 public class OriannaApplication {

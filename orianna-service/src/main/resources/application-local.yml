@@ -151,4 +151,6 @@ logging:
     dubbo: INFO
     mhcframework: INFO
     mhc: INFO
-    
+task:
+  autoStartup: true
+  demoCron: 0/2 * * * * ?

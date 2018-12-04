@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans default-autowire="byName">
+    <!--<bean id="carRedoLogTaskImpl" class="com.chevrolet.core.daas.task.impl.CarRedoLogTaskImpl"/>-->
+    <!--<bean id="carOnlinePriceTaskImpl" class="com.chevrolet.core.daas.task.impl.CarOnlinePriceTaskImpl"/>-->
+    <!--<bean id="carSalesTaskImpl" class="com.chevrolet.core.daas.task.impl.CarSalesTaskImpl"/>-->
+    <bean id="demoTaskImpl" class="com.mhc.orianna.core.biz.task.impl.DemoTaskImpl"/>
+
+    <bean id="demoTask"
+          class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject">
+            <ref bean="demoTaskImpl"></ref>
+        </property>
+        <property name="targetMethod" value="test"/>
+    </bean>
+
+    <bean id="demoTaskTrigger"
+          class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <property name="jobDetail" ref="demoTask"/>
+        <property name="cronExpression" value="${task.demoCron}"/>
+    </bean>
+
+    <bean id="SpringJobSchedulerFactoryBean"
+          class="org.springframework.scheduling.quartz.SchedulerFactoryBean"
+          autowire="no">
+        <property name="triggers">
+            <list>
+                <ref local="demoTaskTrigger"/>
+            </list>
+        </property>
+        <property name="quartzProperties">
+            <props>
+                <prop key="org.quartz.scheduler.skipUpdateCheck">true</prop>
+            </props>
+        </property>
+        <property name="autoStartup">
+            <value>${task.autoStartup}</value>
+        </property>
+    </bean>
+</beans>
