@@ -22,7 +22,7 @@ public class DemoFacadeTest extends BaseTest {
     AssetFacade assetFacade;
 
     @Test
-    public void test1(){
+    public void testAddAssetType(){
         AssetTypeDTO assetTypeDTO = new AssetTypeDTO();
         assetTypeDTO.setAssetTypeDescription("11");
         assetTypeDTO.setAssetTypeStatusEnum(AssetTypeStatusEnum.ENABLE);

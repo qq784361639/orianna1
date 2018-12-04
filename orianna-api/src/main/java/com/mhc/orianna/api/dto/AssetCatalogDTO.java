@@ -13,6 +13,7 @@ import java.io.Serializable;
 @Data
 public class AssetCatalogDTO implements Serializable {
 
+    private static final long serialVersionUID = 4554694291203807111L;
     /**
      * 自增
      */

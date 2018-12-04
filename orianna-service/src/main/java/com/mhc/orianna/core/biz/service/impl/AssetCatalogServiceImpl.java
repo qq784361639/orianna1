@@ -16,6 +16,7 @@ import com.mhc.orianna.dal.manager.AssetCatalogManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -35,13 +36,14 @@ public class AssetCatalogServiceImpl implements AssetCatalogService {
    public Boolean addAssetCatalog(AssetCatalogDTO assetCatalogDTO){
         AssetCatalog assetCatalog = new AssetCatalog();
         assetCatalog.setCatalogId(assetCatalogDTO.getAssetCatalogId());
-        assetCatalog.setCatalogNum(assetCatalogDTO.getAssetCatalogNum());
+        Date date = new Date();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddhhmmss");
+        assetCatalog.setCatalogNum("ML"+sdf.format(date));
         assetCatalog.setAssetTypeName(assetCatalogDTO.getAssetTypeName());
         assetCatalog.setCatalogBrand(assetCatalogDTO.getAssetCatalogBrand());
         assetCatalog.setCatalogModel(assetCatalogDTO.getAssetCatalogModel());
         assetCatalog.setCatalogRemark(assetCatalogDTO.getAssetCatalogRemark());
-        assetCatalog.setIsDeleted(assetCatalogDTO.getIsDeletedEnum().getCode());
-        Date date = new Date();
+        assetCatalog.setIsDeleted(IsDeletedEnum.NOT_DELETE.getCode());
         assetCatalog.setGmtCreate(date);
         assetCatalog.setGmtModified(date);
         Integer flag = assetCatalogManager.insert(assetCatalog);
@@ -90,6 +92,7 @@ public class AssetCatalogServiceImpl implements AssetCatalogService {
         if(catalogNum!=null && !catalogNum.equals("")){
             ew.like("catalog_num",catalogNum);
         }
+        ew.eq("is_deleted",0);
         Page<AssetCatalog> result = assetCatalogManager.selectPage(buildPage(assetCatalogQuery),ew);
         if (result == null || CollectionUtils.isEmpty(result.getRecords())) {
             return new PageInfo<>();
