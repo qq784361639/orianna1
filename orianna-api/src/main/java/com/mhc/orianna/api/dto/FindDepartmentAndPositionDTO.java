@@ -14,8 +14,8 @@ public class FindDepartmentAndPositionDTO implements Serializable {
     private static final long serialVersionUID = -2606050679782679582L;
     private String userId;
     private String name;
-    private String position;
-    private String departmentName;
+    private String job;
+    private String deptName;
 
 }
 

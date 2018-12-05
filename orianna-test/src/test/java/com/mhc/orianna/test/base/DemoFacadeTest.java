@@ -2,7 +2,6 @@ package com.mhc.orianna.test.base;
 
 import com.mhc.bs.common.base.APIResult;
 import com.mhc.orianna.api.AssetFacade;
-import com.mhc.orianna.api.AssetPublicFacade;
 import com.mhc.orianna.api.AssetTypeFacade;
 import com.mhc.orianna.api.dto.AssetDTO;
 import com.mhc.orianna.api.dto.AssetTypeDTO;

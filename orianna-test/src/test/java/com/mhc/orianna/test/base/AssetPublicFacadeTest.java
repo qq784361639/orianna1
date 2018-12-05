@@ -1,12 +1,8 @@
 package com.mhc.orianna.test.base;
 
 import com.mhc.bs.common.base.APIResult;
-import com.mhc.orianna.api.AssetPublicFacade;
-import com.mhc.orianna.api.dto.DepartmentDTO;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-
-import java.util.List;
 
 /**
  * @Author: liuyi
