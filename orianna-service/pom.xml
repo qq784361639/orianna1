@@ -108,6 +108,41 @@
 			    </exclusion>
 			  </exclusions>
 		</dependency>
+
+		<!--acura dubbo接口-->
+		<dependency>
+			<groupId>com.maihaoche.acura</groupId>
+			<artifactId>acura-api</artifactId>
+			<version>1.1-SNAPSHOT</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.mhc.acura</groupId>
+			<artifactId>acura-dubbo</artifactId>
+			<version>1.9.15</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.maihaoche.acura</groupId>
+			<artifactId>acura-dubbo</artifactId>
+			<version>1.1-SNAPSHOT</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.mhc.framework</groupId>
+			<artifactId>framework-support-auth</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.mhc.framework</groupId>
+			<artifactId>framework-common</artifactId>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-redis</artifactId>
+		</dependency>
 		
 		<dependency>
             <groupId>com.google.guava</groupId>

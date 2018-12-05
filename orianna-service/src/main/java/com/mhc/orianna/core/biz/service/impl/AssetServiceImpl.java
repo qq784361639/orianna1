@@ -14,20 +14,21 @@ import com.mhc.orianna.core.base.config.util.BeanUtil;
 import com.mhc.orianna.core.biz.service.AssetService;
 import com.mhc.orianna.dal.dao.AssetDao;
 import com.mhc.orianna.dal.domain.*;
-import com.mhc.orianna.dal.manager.AssetManager;
-import com.mhc.orianna.dal.manager.BorrowRecordManager;
-import com.mhc.orianna.dal.manager.ReturnRecordManager;
-import com.mhc.orianna.dal.manager.StoreRecordManager;
+import com.mhc.orianna.dal.manager.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import net.sourceforge.pinyin4j.PinyinHelper;
+
 @Service
 @Slf4j
 public class AssetServiceImpl implements AssetService {
     @Autowired
     private AssetManager assetManager;
+    @Autowired
+    private AssetCatalogManager assetCatalogManager;
     @Autowired
     private StoreRecordManager storeRecordManager;
     @Autowired
@@ -41,9 +42,12 @@ public class AssetServiceImpl implements AssetService {
         //增加资产
         Asset asset = new Asset();
         asset.setCatalogId(assetDTO.getCatalogId());
-        asset.setCatalogBrand(assetDTO.getCatalogBrand());
-        asset.setCatalogModel(assetDTO.getCatalogModel());
-        asset.setAssetTypeName(assetDTO.getAssetTypeName());
+        Wrapper<AssetCatalog> aw = new EntityWrapper<>();
+        aw.eq("catalog_id",assetDTO.getCatalogId());
+        AssetCatalog assetCatalog = assetCatalogManager.selectOne(aw);
+        asset.setCatalogBrand(assetCatalog.getCatalogBrand());
+        asset.setCatalogModel(assetCatalog.getCatalogModel());
+        asset.setAssetTypeName(assetCatalog.getAssetTypeName());
         asset.setAssetSource(assetDTO.getAssetSourceEnum().getCode());
         asset.setAssetOriginalValue(assetDTO.getAssetOriginalValue());
         asset.setAssetPurchaseOrRentDate(assetDTO.getAssetPurchaseOrRentDate());
@@ -63,7 +67,7 @@ public class AssetServiceImpl implements AssetService {
         storeRecord.setGmtModified(date);
         storeRecord.setStoreDate(date);
         storeRecord.setStoreRemark("");
-        if(asset.getAssetSource()==1){
+        if(asset.getAssetSource()==0){
             asset.setAssetRentEndDate(assetDTO.getAssetRentEndDate());
         }
         Integer count = 0;
@@ -74,7 +78,7 @@ public class AssetServiceImpl implements AssetService {
         for (int i = 0; i < assetSerialNoArray.length; i++) {
             int no = i + 1;
             asset.setAssetSerialNo(assetSerialNoArray[i]);
-            asset.setAssetNo(assetDTO.getAssetTypeNo()+datestr+no);
+            asset.setAssetNo(this.getPinYinHeadChar(assetCatalog.getAssetTypeName()).toUpperCase()+datestr+no);
             storeRecord.setAssetNo(asset.getAssetNo());
             count = count + assetManager.insert(asset);
             Wrapper<Asset> ew = new EntityWrapper<>();
@@ -138,9 +142,13 @@ public class AssetServiceImpl implements AssetService {
     @Override
     public Boolean returnAsset(ReturnRecordDTO returnRecordDTO) {
         //判断资产是否是已发放状态，不是直接返回false
-        if(returnRecordDTO.getAssetStatusEnum().getCode()==0 || returnRecordDTO.getAssetStatusEnum().getCode()==2){
+        Wrapper<Asset> aw = new EntityWrapper<>();
+        aw.eq("asset_id",returnRecordDTO.getAssetId());
+        Asset asset1 = assetManager.selectOne(aw);
+        if(asset1.getAssetStatus()!=1){
             return false;
         }
+        returnRecordDTO.setAssetNo(asset1.getAssetNo());
         Date date = new Date();
         //填写归还资产信息
         Asset asset = new Asset();
@@ -309,4 +317,18 @@ public class AssetServiceImpl implements AssetService {
         dest.setAssetBackRentRecord(src.getAssetBackRentRecord());
         dest.setIsDeletedEnum(IsDeletedEnum.getEnumByCode(src.getIsDeleted()));
     };
+
+    private   String getPinYinHeadChar(String str) {
+        String convert = "";
+        for (int j = 0; j < str.length(); j++) {
+            char word = str.charAt(j);
+            String[] pinyinArray = PinyinHelper.toHanyuPinyinStringArray(word);
+            if (pinyinArray != null) {
+                convert += pinyinArray[0].charAt(0);
+            } else {
+                convert += word;
+            }
+        }
+        return convert;
+    }
 }

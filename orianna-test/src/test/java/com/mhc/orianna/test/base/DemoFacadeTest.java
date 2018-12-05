@@ -2,6 +2,7 @@ package com.mhc.orianna.test.base;
 
 import com.mhc.bs.common.base.APIResult;
 import com.mhc.orianna.api.AssetFacade;
+import com.mhc.orianna.api.AssetPublicFacade;
 import com.mhc.orianna.api.AssetTypeFacade;
 import com.mhc.orianna.api.dto.AssetDTO;
 import com.mhc.orianna.api.dto.AssetTypeDTO;
@@ -20,6 +21,8 @@ public class DemoFacadeTest extends BaseTest {
     AssetTypeFacade assetTypeFacade;
     @Autowired
     AssetFacade assetFacade;
+    @Autowired
+    AssetPublicFacade assetPublicFacade;
 
     @Test
     public void testAddAssetType(){
@@ -166,6 +169,12 @@ public class DemoFacadeTest extends BaseTest {
 //        assetQuery.setAssetStatus(0);
 //        assetQuery.setAssetSource(0);
         APIResult apiResult = assetFacade.queryAsset(assetQuery);
+        System.out.print(apiResult.toString());
+    }
+
+    @Test
+    public void test13(){
+        APIResult apiResult = assetPublicFacade.getAllDepartmentName();
         System.out.print(apiResult.toString());
     }
 }
