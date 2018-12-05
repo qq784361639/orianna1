@@ -96,7 +96,7 @@ public class AssetDTO implements Serializable{
     /**
      * 领用人id
      */
-    private Integer authStaffId;
+    private Long authStaffId;
     /**
      * 领用人花名
      */

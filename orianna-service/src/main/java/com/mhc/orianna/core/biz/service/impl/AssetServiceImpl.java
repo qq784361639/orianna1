@@ -19,7 +19,10 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+
 import net.sourceforge.pinyin4j.PinyinHelper;
 
 @Service
@@ -145,6 +148,9 @@ public class AssetServiceImpl implements AssetService {
         Wrapper<Asset> aw = new EntityWrapper<>();
         aw.eq("asset_id",returnRecordDTO.getAssetId());
         Asset asset1 = assetManager.selectOne(aw);
+        if(asset1==null){
+            return false;
+        }
         if(asset1.getAssetStatus()!=1){
             return false;
         }
@@ -158,7 +164,7 @@ public class AssetServiceImpl implements AssetService {
         //声明一个无意义的时间
         Date date1 = new Date();
         asset.setBorrowApprovalNo("");
-        asset.setAuthStaffId(0);
+        asset.setAuthStaffId(0L);
         asset.setAuthStaffName("");
         asset.setAuthStaffJob("");
         asset.setAuthStaffDept("");
@@ -273,6 +279,9 @@ public class AssetServiceImpl implements AssetService {
         if(authStaffName!=null && !authStaffName.equals("")){
             ew.eq("auth_staff_name",authStaffName);
         }
+        List<String> orderList = new ArrayList<>();
+        orderList.add("gmt_modified");
+        ew.orderDesc(orderList);
         Page<Asset> result = assetManager.selectPage(buildPage(assetQuery),ew);
 
         if (result == null || CollectionUtils.isEmpty(result.getRecords())) {

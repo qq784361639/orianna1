@@ -17,7 +17,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * @Author: liuyi
@@ -80,6 +82,8 @@ public class AssetCatalogServiceImpl implements AssetCatalogService {
         String catalogModel = assetCatalogQuery.getCatalogModel();
         String catalogNum = assetCatalogQuery.getCatalogNum();
         Wrapper<AssetCatalog> ew = new EntityWrapper<>();
+        List<String> orderList = new ArrayList<>();
+        orderList.add("gmt_modified");
         if(assetTypeName!=null && !assetTypeName.equals("")){
             ew.eq("asset_type_name",assetTypeName);
         }
@@ -93,6 +97,7 @@ public class AssetCatalogServiceImpl implements AssetCatalogService {
             ew.like("catalog_num",catalogNum);
         }
         ew.eq("is_deleted",0);
+        ew.orderDesc(orderList);
         Page<AssetCatalog> result = assetCatalogManager.selectPage(buildPage(assetCatalogQuery),ew);
         if (result == null || CollectionUtils.isEmpty(result.getRecords())) {
             return new PageInfo<>();

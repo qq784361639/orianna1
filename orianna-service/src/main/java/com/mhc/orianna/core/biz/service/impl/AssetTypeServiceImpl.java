@@ -29,7 +29,14 @@ public class AssetTypeServiceImpl implements AssetTypeService {
     @Autowired
     private AssetTypeManager assetTypeManager;
     @Override
-    public Boolean addAssetType(AssetTypeDTO assetTypeDTO) {
+    public Boolean addAssetType(AssetTypeDTO assetTypeDTO) throws Exception {
+        Wrapper<AssetType> aw = new EntityWrapper<>();
+        aw.eq("asset_type_name",assetTypeDTO.getAssetTypeName());
+        aw.eq("asset_type_code",assetTypeDTO.getAssetTypeCode());
+        List<AssetType> assetTypes = assetTypeManager.selectList(aw);
+        if(assetTypes.size()>0){
+            throw new Exception();
+        }
         AssetType assetType = new AssetType();
         assetType.setAssetDescription(assetTypeDTO.getAssetTypeDescription());
         assetType.setAssetStatus(AssetTypeStatusEnum.ENABLE.getCode());
@@ -52,6 +59,8 @@ public class AssetTypeServiceImpl implements AssetTypeService {
     public Boolean updateAssetTypeStatus(AssetTypeDTO assetTypeDTO) {
         AssetType assetType = new AssetType();
         assetType.setAssetTypeId(assetTypeDTO.getAssetTypeId());
+        Date date = new Date();
+        assetType.setGmtModified(date);
         assetType.setAssetStatus(assetTypeDTO.getAssetTypeStatusEnum().getCode());
         Wrapper<AssetType> ew = new EntityWrapper<>();
         ew.eq("asset_type_id", assetTypeDTO.getAssetTypeId());
@@ -81,9 +90,11 @@ public class AssetTypeServiceImpl implements AssetTypeService {
     public PageInfo<AssetTypeDTO> queryAssetType(BaseDubboRequest baseDubboRequest) {
         Wrapper<AssetType> ew = new EntityWrapper<>();
         ew.eq("is_deleted",0);
+        List<String> orderList = new ArrayList<>();
+        orderList.add("gmt_modified");
+        ew.orderDesc(orderList);
         AssetType assetType = new AssetType();
         Page<AssetType> page = assetTypeManager.selectPage(buildPage(baseDubboRequest),ew);
-
         return BeanUtil.convertPage2PageInfo(AssetTypeDTO.class,page,assetTypeConvert);
     }
     private final BeanUtil.IConvert<AssetTypeDTO, AssetType> assetTypeConvert = (dest, src) -> {

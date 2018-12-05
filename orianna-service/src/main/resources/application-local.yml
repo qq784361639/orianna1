@@ -38,7 +38,7 @@ dubbo:
     host: 127.0.0.1
     
   provider:
-    version: 1.0_maihe_local
+    version: 1.0_weizhen_local
     timeout: 5000
 
 #      consumer:

@@ -20,17 +20,14 @@ public class DemoFacadeTest extends BaseTest {
     AssetTypeFacade assetTypeFacade;
     @Autowired
     AssetFacade assetFacade;
-    @Autowired
-    AssetPublicFacade assetPublicFacade;
+
 
     @Test
     public void testAddAssetType(){
         AssetTypeDTO assetTypeDTO = new AssetTypeDTO();
         assetTypeDTO.setAssetTypeDescription("11");
-        assetTypeDTO.setAssetTypeStatusEnum(AssetTypeStatusEnum.ENABLE);
         assetTypeDTO.setAssetTypeCode("22");
         assetTypeDTO.setAssetTypeName("笔记本");
-        assetTypeDTO.setIsDeletedEnum(IsDeletedEnum.NOT_DELETE);
         APIResult apiResult;
         apiResult = assetTypeFacade.addAssetType(assetTypeDTO);
         System.out.print(apiResult.toString());
@@ -105,7 +102,7 @@ public class DemoFacadeTest extends BaseTest {
         assetDTO.setBorrowApprovalNo("GJGI879819");
         assetDTO.setAssetFlowTypeEnum(AssetFlowTypeEnum.ASSET_BORROW);
         assetDTO.setAssetBorrowDate(date);
-        assetDTO.setAuthStaffId(520);
+        assetDTO.setAuthStaffId(520L);
         assetDTO.setAssetPredictReturnDate(date);
         assetDTO.setAuthStaffName("维桢");
         assetDTO.setAuthStaffDept("产品技术部");
@@ -171,9 +168,5 @@ public class DemoFacadeTest extends BaseTest {
         System.out.print(apiResult.toString());
     }
 
-    @Test
-    public void test13(){
-        APIResult apiResult = assetPublicFacade.getAllDepartmentName();
-        System.out.print(apiResult.toString());
-    }
+
 }

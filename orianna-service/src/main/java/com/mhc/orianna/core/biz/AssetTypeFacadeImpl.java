@@ -19,7 +19,16 @@ public class AssetTypeFacadeImpl implements AssetTypeFacade {
     AssetTypeService assetTypeService;
     @Override
     public APIResult<Boolean> addAssetType(AssetTypeDTO assetTypeDTO) {
-        Boolean flag = assetTypeService.addAssetType(assetTypeDTO);
+        Boolean flag = null;
+        try {
+            flag = assetTypeService.addAssetType(assetTypeDTO);
+        } catch (Exception e) {
+            APIResult<Boolean> APIResult = new APIResult<>();
+            APIResult.setMessage("该资产类型已存在，无法新增");
+            APIResult.setSuccess(false);
+            APIResult.setData(false);
+            return APIResult;
+        }
         return APIResult.ok(flag);
     }
 

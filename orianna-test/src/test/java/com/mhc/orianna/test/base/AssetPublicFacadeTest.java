@@ -10,17 +10,5 @@ import org.springframework.beans.factory.annotation.Autowired;
  * @Version 1.0
  */
 public class AssetPublicFacadeTest extends BaseTest{
-    @Autowired
-    AssetPublicFacade assetPublicFacade;
-    @Test
-    public void test1(){
-        APIResult allDepartmentName = assetPublicFacade.getAllDepartmentName();
-        System.out.println(allDepartmentName.toString());
-    }
 
-    @Test
-    public void test2(){
-        APIResult allDepartmentName = assetPublicFacade.getDepartmentNameAndPositionByName("麦禾");
-        System.out.println(allDepartmentName.toString());
-    }
 }

@@ -7,7 +7,7 @@ import com.mhc.orianna.api.query.BaseDubboRequest;
 import java.util.List;
 
 public interface AssetTypeService {
-    Boolean addAssetType(AssetTypeDTO assetTypeDTO);
+    Boolean addAssetType(AssetTypeDTO assetTypeDTO) throws Exception;
 
     Boolean updateAssetTypeStatus(AssetTypeDTO assetTypeDTO);
 
