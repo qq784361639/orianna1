@@ -59,7 +59,7 @@ public class DemoFacadeTest extends BaseTest {
         AssetTypeDTO assetTypeDTO = new AssetTypeDTO();
         assetTypeDTO.setAssetTypeId(1);
         assetTypeDTO.setIsDeletedEnum(IsDeletedEnum.DELETE);
-        APIResult apiResult = assetTypeFacade.queryAllAssertType();
+        APIResult apiResult = assetTypeFacade.queryAllAssertType(true);
         System.out.print(apiResult.toString());
 
     }
@@ -102,7 +102,7 @@ public class DemoFacadeTest extends BaseTest {
         assetDTO.setBorrowApprovalNo("GJGI879819");
         assetDTO.setAssetFlowTypeEnum(AssetFlowTypeEnum.ASSET_BORROW);
         assetDTO.setAssetBorrowDate(date);
-        assetDTO.setAuthStaffId(520L);
+        assetDTO.setAuthStaffId("");
         assetDTO.setAssetPredictReturnDate(date);
         assetDTO.setAuthStaffName("维桢");
         assetDTO.setAuthStaffDept("产品技术部");
