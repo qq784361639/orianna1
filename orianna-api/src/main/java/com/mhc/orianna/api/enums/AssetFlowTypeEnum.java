@@ -7,7 +7,9 @@ import lombok.Getter;
  */
 public enum AssetFlowTypeEnum {
     ASSET_BORROW(0, "资产借用"),
-    ASSET_ISSUE(1, "资产发放");
+    ASSET_ISSUE(1, "资产发放"),
+    NOT_BORROW(2,"资产未领用");
+
 
     @Getter
     private Integer code;

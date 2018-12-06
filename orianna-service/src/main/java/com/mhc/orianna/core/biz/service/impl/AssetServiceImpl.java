@@ -160,7 +160,7 @@ public class AssetServiceImpl implements AssetService {
         Asset asset = new Asset();
         asset.setGmtModified(date);
         asset.setAssetStatus(0);
-        asset.setAssetFlowType(0);
+        asset.setAssetFlowType(2);
         //声明一个无意义的时间
         Date date1 = new Date();
         asset.setBorrowApprovalNo("");
