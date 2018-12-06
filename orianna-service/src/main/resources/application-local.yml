@@ -154,4 +154,5 @@ logging:
 task:
   autoStartup: true
   demoCron: 0/30 * * * * ?
-  #  sendMessage: 0 0 12 * * ?
+  #  每天中午12点进行一次扫描换用以下代码
+  #  demoCron: 0 0 12 * * ?
