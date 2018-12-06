@@ -6,6 +6,7 @@
     <!--<bean id="carOnlinePriceTaskImpl" class="com.chevrolet.core.daas.task.impl.CarOnlinePriceTaskImpl"/>-->
     <!--<bean id="carSalesTaskImpl" class="com.chevrolet.core.daas.task.impl.CarSalesTaskImpl"/>-->
     <bean id="demoTaskImpl" class="com.mhc.orianna.core.biz.task.impl.DemoTaskImpl"/>
+    <bean id="withdrawalWarnTaskImpl" class="com.mhc.orianna.core.biz.task.impl.WithdrawalWarnTaskImpl"/>
 
     <bean id="demoTask"
           class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
@@ -14,10 +15,22 @@
         </property>
         <property name="targetMethod" value="test"/>
     </bean>
+    <bean id="withdrawalWarnTask"
+                 class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+    <property name="targetObject">
+        <ref bean="withdrawalWarnTaskImpl"></ref>
+    </property>
+    <property name="targetMethod" value="sendMessage"/>
+    </bean>
 
     <bean id="demoTaskTrigger"
           class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
         <property name="jobDetail" ref="demoTask"/>
+        <property name="cronExpression" value="${task.demoCron}"/>
+    </bean>
+    <bean id="withdrawalWarnTaskTrigger"
+          class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <property name="jobDetail" ref="withdrawalWarnTask"/>
         <property name="cronExpression" value="${task.demoCron}"/>
     </bean>
 
@@ -26,7 +39,8 @@
           autowire="no">
         <property name="triggers">
             <list>
-                <ref local="demoTaskTrigger"/>
+                <!--<ref local="demoTaskTrigger"/>-->
+                <ref local="withdrawalWarnTaskTrigger"/>
             </list>
         </property>
         <property name="quartzProperties">

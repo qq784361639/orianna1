@@ -38,15 +38,15 @@ dubbo:
     host: 127.0.0.1
     
   provider:
-    version: 1.0_weizhen_local
+    version: 1.0_wangyou_local
     timeout: 5000
 
-#      consumer:
-#        buick:
-#          version: 1.0_local
-#          timeout: 15000
-#          retries: 0
-#          check: false
+  consumer:
+    buick:
+      version: 1.0_test_buddha_docker
+      timeout: 15000
+      retries: 0
+      check: false
  
 #spring
 spring:
@@ -153,4 +153,5 @@ logging:
     mhc: INFO
 task:
   autoStartup: true
-  demoCron: 0/2 * * * * ?
+  demoCron: 0/30 * * * * ?
+  #  sendMessage: 0 0 12 * * ?

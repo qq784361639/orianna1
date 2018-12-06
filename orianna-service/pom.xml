@@ -64,6 +64,24 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
+
+
+		<!--讴歌依赖-->
+		<dependency>
+			<groupId>com.maihaoche.acura</groupId>
+			<artifactId>acura-api</artifactId>
+			<version>2.2.4</version>
+		</dependency>
+		<dependency>
+			<groupId>com.mhc.acura</groupId>
+			<artifactId>acura-dubbo</artifactId>
+			<version>1.9.16-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>com.mhc</groupId>
+			<artifactId>camaro-spring-boot-starter</artifactId>
+			<version>0.3.8</version>
+		</dependency>
 		
 		 <!-- apollo -->
 		<dependency>
