@@ -119,7 +119,7 @@ public class Asset extends BaseModel {
      * 领用人id
      */
     @TableField("auth_staff_id")
-    private Long authStaffId;
+    private String authStaffId;
     /**
      * 领用人姓名
      */
@@ -314,11 +314,11 @@ public class Asset extends BaseModel {
         this.borrowApprovalNo = borrowApprovalNo;
     }
 
-    public Long getAuthStaffId() {
+    public String getAuthStaffId() {
         return authStaffId;
     }
 
-    public void setAuthStaffId(Long authStaffId) {
+    public void setAuthStaffId(String authStaffId) {
         this.authStaffId = authStaffId;
     }
 

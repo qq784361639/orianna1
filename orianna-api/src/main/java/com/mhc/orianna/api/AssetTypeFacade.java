@@ -35,6 +35,6 @@ public interface AssetTypeFacade {
     /**
      * 查询所有未删除，已启用的资产类型信息
      */
-    APIResult<List<AssetTypeDTO>> queryAllAssertType();
+    APIResult<List<AssetTypeDTO>> queryAllAssertType(Boolean isAddCatalog);
 
 }

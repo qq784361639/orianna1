@@ -34,7 +34,7 @@ public class BorrowRecord extends BaseModel {
      * 领用人id
      */
     @TableField("auth_staff_id")
-    private Long authStaffId;
+    private String authStaffId;
     /**
      * 领用人花名
      */
@@ -93,11 +93,11 @@ public class BorrowRecord extends BaseModel {
         this.borrowApprovalNo = borrowApprovalNo;
     }
 
-    public Long getAuthStaffId() {
+    public String getAuthStaffId() {
         return authStaffId;
     }
 
-    public void setAuthStaffId(Long authStaffId) {
+    public void setAuthStaffId(String authStaffId) {
         this.authStaffId = authStaffId;
     }
 

@@ -51,8 +51,8 @@ public class AssetTypeFacadeImpl implements AssetTypeFacade {
     }
 
     @Override
-    public APIResult<List<AssetTypeDTO>> queryAllAssertType() {
-        List<AssetTypeDTO> list = assetTypeService.queryAllAssetType();
+    public APIResult<List<AssetTypeDTO>> queryAllAssertType(Boolean isAddCatalog) {
+        List<AssetTypeDTO> list = assetTypeService.queryAllAssetType(isAddCatalog);
         return APIResult.ok(list);
     }
 }

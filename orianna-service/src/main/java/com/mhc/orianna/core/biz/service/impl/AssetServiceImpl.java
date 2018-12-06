@@ -164,7 +164,7 @@ public class AssetServiceImpl implements AssetService {
         //声明一个无意义的时间
         Date date1 = new Date();
         asset.setBorrowApprovalNo("");
-        asset.setAuthStaffId(0L);
+        asset.setAuthStaffId("");
         asset.setAuthStaffName("");
         asset.setAuthStaffJob("");
         asset.setAuthStaffDept("");

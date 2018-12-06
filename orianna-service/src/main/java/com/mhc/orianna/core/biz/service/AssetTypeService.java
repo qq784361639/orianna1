@@ -15,5 +15,5 @@ public interface AssetTypeService {
 
     PageInfo<AssetTypeDTO> queryAssetType(BaseDubboRequest baseDubboRequest);
 
-    List<AssetTypeDTO> queryAllAssetType();
+    List<AssetTypeDTO> queryAllAssetType(Boolean isAddCatalog);
 }

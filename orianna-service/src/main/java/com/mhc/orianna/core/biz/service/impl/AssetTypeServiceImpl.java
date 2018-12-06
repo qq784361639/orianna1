@@ -114,12 +114,14 @@ public class AssetTypeServiceImpl implements AssetTypeService {
     }
 
     @Override
-    public List<AssetTypeDTO> queryAllAssetType() {
+    public List<AssetTypeDTO> queryAllAssetType(Boolean isAddCatalog) {
         Wrapper<AssetType> ew = new EntityWrapper<>();
-        ew.eq("is_deleted",0).eq("asset_status",1);
+        if(isAddCatalog==true){
+            ew.eq("is_deleted",0).eq("asset_status",1);
+        }
         List<AssetType> list = assetTypeManager.selectList(ew);
         List<AssetTypeDTO> listdto = new ArrayList<>();
-        AssetTypeDTO assetTypeDTO = null;
+        AssetTypeDTO assetTypeDTO;
         for (AssetType assettype :list) {
             assetTypeDTO = new AssetTypeDTO();
             assetTypeDTO.setIsDeletedEnum(IsDeletedEnum.getEnumByCode(assettype.getIsDeleted()));
