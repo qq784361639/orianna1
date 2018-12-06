@@ -11,8 +11,8 @@ import com.mhc.orianna.api.query.AssetQuery;
 import com.mhc.orianna.api.query.BaseDubboRequest;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-
 import java.math.BigDecimal;
+
 import java.util.Date;
 
 public class DemoFacadeTest extends BaseTest {
@@ -20,8 +20,6 @@ public class DemoFacadeTest extends BaseTest {
     AssetTypeFacade assetTypeFacade;
     @Autowired
     AssetFacade assetFacade;
-
-
     @Test
     public void testAddAssetType(){
         AssetTypeDTO assetTypeDTO = new AssetTypeDTO();
@@ -167,6 +165,7 @@ public class DemoFacadeTest extends BaseTest {
         APIResult apiResult = assetFacade.queryAsset(assetQuery);
         System.out.print(apiResult.toString());
     }
+
 
 
 }

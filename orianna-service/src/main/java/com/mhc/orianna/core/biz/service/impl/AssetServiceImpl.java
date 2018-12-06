@@ -222,7 +222,7 @@ public class AssetServiceImpl implements AssetService {
     @Override
     public Boolean updateAsset(AssetDTO assetDTO) {
         Wrapper<Asset> ew = new EntityWrapper<>();
-        ew.eq("asset_no",assetDTO.getAssetNo());
+        ew.eq("asset_id",assetDTO.getAssetId());
         Asset panduan = assetManager.selectOne(ew);
         //判断资产状态是否为已退租状态，如果是，返回false;
         if(panduan.getAssetStatus()==2){
