@@ -1,5 +1,10 @@
 package com.mhc.orianna.test.base;
 
+import com.camaro.message.dto.SendMsgRequest;
+import com.camaro.message.dto.SendResult;
+import com.camaro.message.service.MessageService;
+import com.mhc.acura.dubbo.IUserService;
+import com.mhc.acura.dubbo.model.User;
 import com.mhc.bs.common.base.APIResult;
 import com.mhc.orianna.api.AssetFacade;
 import com.mhc.orianna.api.AssetTypeFacade;
@@ -9,17 +14,22 @@ import com.mhc.orianna.api.dto.ReturnRecordDTO;
 import com.mhc.orianna.api.enums.*;
 import com.mhc.orianna.api.query.AssetQuery;
 import com.mhc.orianna.api.query.BaseDubboRequest;
+import com.subaru.common.entity.BizResult;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import java.math.BigDecimal;
 
-import java.util.Date;
+import java.util.*;
 
 public class DemoFacadeTest extends BaseTest {
     @Autowired
     AssetTypeFacade assetTypeFacade;
     @Autowired
     AssetFacade assetFacade;
+    @Autowired
+    MessageService messageService;
+    @Autowired
+    IUserService iUserService;
     @Test
     public void testAddAssetType(){
         AssetTypeDTO assetTypeDTO = new AssetTypeDTO();
@@ -164,6 +174,29 @@ public class DemoFacadeTest extends BaseTest {
 //        assetQuery.setAssetSource(0);
         APIResult apiResult = assetFacade.queryAsset(assetQuery);
         System.out.print(apiResult.toString());
+    }
+
+    @Test
+    public void testSendMessage(){
+        Map<String,String> map = new HashMap();
+        map.put("assetNo","12345");
+        map.put("assetTypeName","笔记本");
+        map.put("assetRentEndDate","2018-12-19");
+        map.put("assetOriginalValue","500");
+        map.put("authStaffName","维桢");
+        SendMsgRequest r = SendMsgRequest.builder().templateId("5c19df39e958a2003d018f9f").id("18860836072").params(map).build();
+        SendResult sendResult = messageService.sendMessage(r);
+        System.out.println(sendResult.isSuccess());
+
+    }
+
+    @Test
+    public void testAu(){
+        BizResult<List<User>> bizResult = iUserService.findUserByRealNameOrNickName("麦禾");
+        List<User> data = bizResult.getData();
+        User user = data.get(0);
+        user = iUserService.findBy(Arrays.asList(user.getUserId())).getData().get(0);
+
     }
 
 

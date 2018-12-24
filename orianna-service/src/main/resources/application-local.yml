@@ -34,11 +34,11 @@ dubbo:
 
   protocol:
     name: dubbo
-    port: 20885
+    port: 20886
     host: 127.0.0.1
     
   provider:
-    version: 1.0_wangyou_local
+    version: 1.1_weizhen_local
     timeout: 5000
 
   consumer:
@@ -156,3 +156,6 @@ task:
   demoCron: 0/30 * * * * ?
   #  每天中午12点进行一次扫描换用以下代码
   #  demoCron: 0 0 12 * * ?
+
+#5c19df39e958a2003d018f9f
+#固资租赁到期通知,资产编号:#assetNo#资产类型:#assetTypeName#租赁到期时间:#assetRentEndDate#租金:#assetOriginalValue#元/月领用人:#authStaffName#
